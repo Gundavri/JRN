@@ -16,7 +16,7 @@ var initialRow2 = document.getElementsByClassName('initial-row-2');
 var scoreDiv = document.getElementsByClassName('score-num')[0];
 
 // Variables after starting Bonus Mode
-var toggleSwitch = document.getElementById('switch');
+var toggleSwitch = document.getElementById('mode-switch');
 var modalImgs = document.getElementsByClassName('modal-body-image');
 var signsWords = document.getElementsByClassName('signs-words');
 var gameWrappers = document.getElementsByClassName('game-wrapper');
@@ -626,3 +626,36 @@ playAgainBtn[1].addEventListener('click', playAgainCallback)
 toggleSwitch.addEventListener('change', modeSwitchCallback);
 
 window.addEventListener('resize', resizeCallback);
+
+
+
+// Make connection
+const socket = io.connect('http://localhost:4000');
+
+var playerNum = 0;
+var roomNum = '';
+if(location.href.indexOf('=') !== -1){
+    playerNum = 1;
+    roomNum = location.href.substring(location.href.indexOf('=')+1);
+}
+
+socket.on('numPlayer', (data) => {
+    playerNum = data;
+});
+
+socket.on('roomNum', (data) => {
+    if(!roomNum){
+        roomNum = data;
+    }
+    console.log(roomNum)
+    socket.emit('gotRoom', {roomNum, playerNum, wantRandom: false});
+});
+
+socket.on('getReady', (data) => {
+    setTimeout(() => {
+        socket.emit('move', {roomNum, playerNum, sign: 'rock'})
+    }, 1050);
+})
+
+
+socket.on('sign', data => console.log(data));
