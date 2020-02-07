@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="./style.css">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+</head>
+<body>
+
+
+  <!-- Modal Code -->
+  <div class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <p>RULES</p>
+      </div>
+      <div class="modal-body">
+        <img src="./images/image-rules.svg" alt="rules-image" class="modal-body-image modal-body-image-normal">
+        <img src="./images/image-rules-bonus.svg" alt="rules-image-bonus" class="modal-body-image modal-body-image-bonus">
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="header">
+    <div class="signs-words signs-wrods-normal">
+      <div>ROCK</div>
+      <div>PAPER</div>
+      <div>SCISSORS</div>
+    </div>
+    <div class="signs-words signs-words-bonus">
+      <div>ROCK</div>
+      <div>PAPER</div>
+      <div>SCISSORS</div>
+      <div>LIZARD</div>
+      <div>SPOCK</div>
+    </div>
+    <div class="score">
+      <div class="score-text">SCORE</div>
+      <div class="score-num">0</div>
+    </div>
+  </div>
+
+
+  <div class="game-wrapper game-wrapper-choose">
+    <div class="initial-row-1">
+
+      <!-- Paper Div -->
+      <div class="wrapper wrapper-paper">
+        <div class="outer-border paper-outer-border">
+          <div class="inner-border-thingie paper-inner-border-thingie"></div>
+          <div class="inner-border paper-inner-border">
+            <img class="inner-img" src="./images/icon-paper.svg" alt="">
+          </div>
+        </div>
+        <div class="outer-border-thingie paper-outer-border-thingie"></div>
+      </div>
+
+      <!-- Scissors Div -->
+      <div class="wrapper wrapper-scissors">
+        <div class="outer-border scissors-outer-border">
+          <div class="inner-border-thingie scissors-inner-border-thingie"></div>
+          <div class="inner-border scissors-inner-border">
+            <img class="inner-img" src="./images/icon-scissors.svg" alt="">
+          </div>
+        </div>
+        <div class="outer-border-thingie scissors-outer-border-thingie"></div>
+      </div>
+
+
+      <div class="selected-text">YOU PICKED</div>
+      <div class="selected-text">THE HOUSE PICKED</div>
+
+
+    </div>
+
+    <div class="initial-row-2">
+
+      <!-- Rock Div -->
+      <div class="wrapper wrapper-rock">
+        <div class="outer-border rock-outer-border">
+          <div class="inner-border-thingie rock-inner-border-thingie"></div>
+          <div class="inner-border rock-inner-border">
+            <img class="inner-img" src="./images/icon-rock.svg" alt="">
+          </div>
+        </div>
+        <div class="outer-border-thingie rock-outer-border-thingie"></div>
+      </div>
+
+      <div class="underneath player-underneath"></div>
+      <div class="player-choice"></div>
+      <div class="play-again"><div class="play-again-text"></div><div class="play-again-btn">PLAY AGAIN</div></div>
+      <div class="underneath enemy-underneath"></div>
+      <div class="enemy-choice"></div>
+
+    </div>
+
+    <div class="line line-top"></div>
+    <div class="line line-left"></div>
+    <div class="line line-right"></div>
+  </div>
+
+
+  
+  <div class="game-wrapper game-wrapper-choose-bonus">
+    <div class="initial-row-1 initial-row-1-bonus">
+
+      <!-- Spock Div -->
+      <div class="wrapper wrapper-spock wrapper-spock-bonus">
+        <div class="outer-border spock-outer-border">
+          <div class="inner-border-thingie spock-inner-border-thingie"></div>
+          <div class="inner-border spock-inner-border">
+            <img class="inner-img" src="./images/icon-spock.svg" alt="">
+          </div>
+        </div>
+        <div class="outer-border-thingie spock-outer-border-thingie"></div>
+      </div>
+
+      
+      <!-- Scissors Div -->
+      <div class="wrapper wrapper-scissors wrapper-scissors-bonus">
+        <div class="outer-border scissors-outer-border">
+          <div class="inner-border-thingie scissors-inner-border-thingie"></div>
+          <div class="inner-border scissors-inner-border">
+            <img class="inner-img" src="./images/icon-scissors.svg" alt="">
+          </div>
+        </div>
+        <div class="outer-border-thingie scissors-outer-border-thingie"></div>
+      </div>
+      
+      <!-- Paper Div -->
+    <div class="wrapper wrapper-paper wrapper-paper-bonus">
+      <div class="outer-border paper-outer-border">
+        <div class="inner-border-thingie paper-inner-border-thingie"></div>
+        <div class="inner-border paper-inner-border">
+          <img class="inner-img" src="./images/icon-paper.svg" alt="">
+        </div>
+      </div>
+      <div class="outer-border-thingie paper-outer-border-thingie"></div>
+    </div>
+
+      
+
+
+      <div class="selected-text">YOU PICKED</div>
+      <div class="selected-text">THE HOUSE PICKED</div>
+
+
+    </div>
+
+    <div class="initial-row-2 initial-row-2-bonus">
+
+      <!-- Lizard Div -->
+      <div class="wrapper wrapper-lizard wrapper-lizard-bonus">
+        <div class="outer-border lizard-outer-border">
+          <div class="inner-border-thingie lizard-inner-border-thingie"></div>
+          <div class="inner-border lizard-inner-border">
+            <img class="inner-img" src="./images/icon-lizard.svg" alt="">
+          </div>
+        </div>
+        <div class="outer-border-thingie lizard-outer-border-thingie"></div>
+      </div>
+
+      <!-- Rock Div -->
+      <div class="wrapper wrapper-rock wrapper-rock-bonus">
+        <div class="outer-border rock-outer-border">
+          <div class="inner-border-thingie rock-inner-border-thingie"></div>
+          <div class="inner-border rock-inner-border">
+            <img class="inner-img" src="./images/icon-rock.svg" alt="">
+          </div>
+        </div>
+        <div class="outer-border-thingie rock-outer-border-thingie"></div>
+      </div>
+
+      <div class="underneath player-underneath"></div>
+      <div class="player-choice player-choice-bonus"></div>
+      <div class="play-again"><div class="play-again-text"></div><div class="play-again-btn">PLAY AGAIN</div></div>
+      <div class="underneath enemy-underneath"></div>
+      <div class="enemy-choice enemy-choice-bonus"></div>
+
+    </div>
+
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+    <div class="line line-4"></div>
+    <div class="line line-5"></div>
+  </div>
+
+
+ 
+  <div class="mode-switch no-select">
+    <div class="mode-switch-text">MODE</div>
+    <input type="checkbox" id="switch" />
+    <label for="switch">Toggle</label>
+  </div>
+
+  <div class="rules">
+    RULES
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Gundavri</a>.
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

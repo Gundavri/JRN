@@ -1,0 +1,741 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap');
+
+.attribution { 
+    width: 100%;
+    margin: 0 auto; 
+    position: absolute; 
+    bottom: 0; 
+    font-size: 11px; 
+    text-align: center;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+html, body {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body {
+    height: 90%;
+    background-image: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+.modal {
+    display: none;
+    z-index: 2;
+    position: fixed;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: opacity 300ms ease-in-out;
+}
+
+.modal-content {
+    width: 25vw;
+    height: 25vw;
+    margin-top: 50vh;
+    margin-left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 4%;
+    padding: 5px 10px;
+}
+
+.close {
+    font-size: 120%;
+    float: right;
+    margin-right: 4%;
+    cursor: pointer;
+    color: hsl(217, 16%, 45%);
+}
+
+.close:hover {
+    color: hsl(229, 25%, 31%);
+}
+
+.modal-header {
+    margin-top: 3%;
+    margin-left: 4%;
+    height: 12%;
+    font-size: 2vw;
+}
+
+.modal-header p {
+    margin: 0;
+    transform: translate(0, 0.4vw);
+    color: hsl(229, 25%, 31%);
+    font-weight: 800;
+    width: 50%;
+}
+
+.modal-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-body img {
+    height: 20vw;
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 6vw;
+    width: 45%;
+    margin: 1.2% auto;
+    border: solid 2px  hsl(217, 16%, 45%);
+    border-radius: 12px;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    z-index: 1;
+}
+
+.signs-words {
+    color: #fff;
+    font-weight: 800;
+    font-size: 2vw;
+}
+
+.score {
+    background-color: white;
+    width: 10vw;
+    height: 7vw;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    color: hsl(229, 25%, 31%);
+    padding-top: 1vw;
+}
+
+.score-text {
+    font-size: 2vw;
+    font-weight: 700;
+}
+
+.score-num {
+    font-size: 5vw;
+    font-weight: 900;
+}
+
+.rules {
+    cursor: pointer;
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    height: 4%;
+    width: 7%;
+    border: solid 1px #fff;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 1.1vw;
+}
+
+.wrapper {
+    width: 10vw;
+    height: 10vw;
+    position: relative;
+    margin: 0 6vw;
+}
+
+.inner-img {
+    width: 42%;
+}
+
+.outer-border {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+}
+
+.outer-border-thingie {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: translate(0, 5%);
+}
+
+.inner-border {
+    position: absolute;
+    width: 77%;
+    height: 77%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-border-thingie {
+    position: relative;
+    width: 77%;
+    height: 77%;
+    border-radius: 50%;
+    transform: translate(0, -5%);
+}
+
+
+/* Styles for PAPER */
+.paper-outer-border {
+    background-image: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+
+.paper-outer-border-thingie {
+    background-color: hsl(233, 42%, 40%);
+}
+
+.paper-inner-border {
+    background-color: rgb(200, 200, 200);
+}
+
+.paper-inner-border-thingie {
+    background-color: rgb(160, 160, 160);
+}
+
+
+/* Styles for SCISSORS */
+.scissors-outer-border {
+    background-image: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+.scissors-outer-border-thingie {
+    background-color: hsl(33, 81%, 43%);
+}
+
+.scissors-inner-border {
+    background-color: rgb(200, 200, 200);
+}
+
+.scissors-inner-border-thingie {
+    background-color: rgb(160, 160, 160);
+}
+
+
+/* Styles for ROCK */
+.rock-outer-border {
+    background-image: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+
+.rock-outer-border-thingie {
+    background-color: hsl(350, 77%, 40%);
+}
+
+.rock-inner-border {
+    background-color: rgb(200, 200, 200);
+}
+
+.rock-inner-border-thingie {
+    background-color: rgb(160, 160, 160);
+}
+
+/* Styles for SPOCK */
+.spock-outer-border {
+    background-image: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+}
+
+.spock-outer-border-thingie {
+    background-color: hsl(188, 56%, 39%);
+}
+
+.spock-inner-border {
+    background-color: rgb(200, 200, 200);
+}
+
+.spock-inner-border-thingie {
+    background-color: rgb(160, 160, 160);
+}
+
+/* Styles for LIZARD */
+.lizard-outer-border {
+    background-image: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+}
+
+.lizard-outer-border-thingie {
+    background-color: hsl(255, 68%, 35%);
+}
+
+.lizard-inner-border {
+    background-color: rgb(200, 200, 200);
+}
+
+.lizard-inner-border-thingie {
+    background-color: rgb(160, 160, 160);
+}
+
+
+.initial-row-1 {
+    width: 100%;
+    margin-top: 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.initial-row-2 {
+    position: relative;
+    margin-top: 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.line {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 15vw;
+    height: 1vw;
+    position: absolute;
+    z-index: -1;
+}
+
+.line-top {
+    margin: -20vw 50%;
+    transform: translate(-50%, 0);
+}
+
+.line-left {
+    margin: -18vw 50%;
+    transform-origin: left;
+    transform: translate(-10vw, 0) rotate(50deg);
+}
+
+.line-right {
+    margin: -18vw 50%;
+    transform-origin: right;
+    transform: translate(-5.1vw, 0) rotate(-50deg);
+}
+
+
+.selected-text {
+    display: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.4vw;
+    letter-spacing: 0.2vw;
+    width: 30%;
+    text-align: center;
+} 
+
+.player-choice, .enemy-choice {
+    display: none;
+    width: 26%;
+}
+
+.underneath {
+    display: none;
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: -2;
+    border-radius: 50%;
+}
+
+.player-underneath {
+    margin-top: 1.3vw;
+    margin-left: -15%;
+}
+
+.enemy-underneath {
+    margin-top: 1.3vw;
+    margin-left: 15%;
+}
+
+
+.play-again {
+    display: none;
+    margin-top: 2%;
+}
+
+.play-again-btn {
+    cursor: pointer;
+    background-color: #C8C8C8;
+    width: 12vw;
+    height: 1.2vw;
+    border-radius: 7px;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.8vw;
+    font-size: 1vw;
+    color: hsl(310, 76%, 32%);
+}
+
+.play-again-text {
+    font-size: 2vw;
+    font-weight: 800;
+    color: #C8C8C8;
+    margin: 2% auto;
+    text-align: center;
+}
+
+
+/* styles for bonus */
+/* --------------------------- */
+
+
+.mode-switch {
+    cursor: pointer;
+    position: absolute;
+    right: 12%;
+    bottom: 3%;
+}
+
+.mode-switch-text {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-align: center;
+}
+
+input[type=checkbox]{
+	height: 0px;
+	width: 0;
+    visibility: hidden;
+    display: none;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 50px;
+	height: 20px;
+	background: grey;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background: #bada55;
+}
+
+input:checked + label:after {
+	left: 100%;
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 3vw;
+}
+
+
+.modal-body-image-bonus {
+    display: none !important;
+}
+
+.signs-words-bonus {
+    display: none;
+    font-size: 1.5vw;
+}
+
+.game-wrapper-choose-bonus {
+    display: none;
+}
+
+.initial-row-1-bonus {
+    margin-top: 10.6vw;
+}
+
+.wrapper-scissors-bonus {
+    transform: translateY(-10vw);
+}
+
+.wrapper-spock-bonus {
+    margin: 0;
+}
+
+.wrapper-paper-bonus {
+    margin: 0;
+}
+
+.wrapper-lizard-bonus {
+    margin: 0 4.5vw;
+}
+
+.wrapper-rock-bonus {
+    margin: 0 4.5vw;
+}
+
+.initial-row-2-bonus {
+    margin-top: 6vw;
+}
+
+.line-1 {
+    margin: -5vw 42.5vw;
+}
+
+.line-2 {
+    margin: -5vw 40.8vw;
+    transform-origin: left;
+    transform: rotate(-113deg);
+}
+
+.line-3 {
+    margin: -24vw 37vw;
+    transform-origin: left;
+    transform: rotate(-29deg);
+}
+
+.line-4 {
+    margin: -24vw 62.3vw;
+    transform-origin: left;
+    transform: rotate(-149deg)
+}
+
+.line-5 {
+    margin: -5vw 59.7vw;
+    transform-origin: left;
+    transform: rotate(-67deg);
+}
+
+.player-choice-bonus, .enemy-choice-bonus {
+    display: none;
+    width: 23%;
+}
+
+.enemy-choice-bonus {
+    margin-left: 2.8vw;
+}
+
+
+
+/* Mobile version */
+
+@media only screen and (max-width: 768px){
+    .modal-content {
+        width: 65vw;
+        height: 65vw;
+    }
+
+    .modal-header {
+        font-size: 4vw;
+    }
+
+    .modal-body img {
+        width: 82%;
+        height: 82%;
+    }
+
+    .header {
+        height: 12vw;
+        width: 75%;
+        margin: 8% auto;
+        border-radius: 5px;
+    }
+
+    .signs-words {
+        font-size: 4vw;
+    }
+
+    .score {
+        width: 14vw;
+        height: 11.5vw;
+        border-radius: 3px;
+    }
+
+    .score-text {
+        font-size: 3.5vw;
+    }
+
+    .score-num {
+        font-size: 6vw;
+    }
+
+    .rules {
+        height: 4%;
+        width: 12%; 
+        border-radius: 3px;
+        font-size: 2.2vw;
+    }
+
+    .wrapper {
+        width: 16vw;
+        height: 16vw;
+        margin: 0 10vw;
+    }
+
+    .initial-row-1 {
+        margin-top: 25vw;
+    }
+
+    .initial-row-2 {
+        margin-top: 10vw;
+    }
+
+    .line {
+        width: 32vw;
+    }
+
+    .line-top {
+        margin: -34vw 50%;
+    }
+
+    .line-left {
+        margin: -34vw 50%;
+        transform: translate(-19vw, 0) rotate(53deg);
+    }
+
+    .line-right {
+        margin: -34vw 50%;
+        transform: translate(-13vw, 0) rotate(-53deg);
+    }
+
+    .selected-text {
+        font-size: 2.5vw;
+        transform: translateY(35vw);
+    }
+
+    .underneath {
+        width: 12vw;
+        height: 12vw;
+    }
+
+
+    .play-again {
+        transform: translateY(55vw);
+    }
+
+    .play-again-btn {
+        width: 40vw;
+        height: 4vw;
+        font-size: 3.5vw;
+        color: rgba(0, 0, 0, 0.7);
+        font-weight: 600;
+        border-radius: 4px;
+        padding: 2vw;
+        letter-spacing: 4px;
+    }
+
+    .play-again-text {
+        font-size: 6vw;
+    }
+
+
+    /* styles for bonus */
+    /* -------------------------- */
+
+    .mode-switch {
+        cursor: default;
+        right: 20%;
+        bottom: 3.3%;
+    }
+
+    .mode-switch-text {
+        font-weight: 500;
+        font-size: 2.5vw;
+    }
+
+    label {
+        width: 10vw;
+	    height: 3vw;
+    }
+
+    label:after {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    label:active:after {
+        width: 7vw;
+    }
+
+    .signs-words-bonus {
+        font-size: 2.5vw;
+    }
+
+    .initial-row-1-bonus {
+        margin-top: 30vw;
+    }
+
+    .wrapper-scissors-bonus {
+        transform: translate(-9.2vw, -20vw);
+    }
+
+    .wrapper-spock-bonus {
+        margin-left: 11.2vw;
+    }
+    
+    .wrapper-paper-bonus {
+        margin-left: -10vw;;
+    }
+
+    .wrapper-lizard-bonus {
+        margin: 0 9vw;
+    }
+    
+    .wrapper-rock-bonus {
+        margin: 0 4.5vw;
+    }
+    
+    .initial-row-2-bonus {
+        margin-top: 10vw;
+    }
+
+    .line-1 {
+        margin: -8vw 42.5vw;
+    }
+
+    .line-2 {
+        margin: -5vw 39.5vw;
+        transform: rotate(-118deg);
+    }
+    
+    .line-3 {
+        margin: -39vw 30vw;
+        transform: rotate(-34deg);
+    }
+    
+    .line-4 {
+        margin: -32.5vw 80vw;
+        transform: rotate(-143deg)
+    }
+    
+    .line-5 {
+        margin: -5vw 64.5vw;
+        transform: rotate(-66deg);
+    }
+
+    .player-choice-bonus {
+        transform: translateX(-12vw);
+    }
+
+    .enemy-choice-bonus {
+        margin-left: -15vw;
+    }
+
+}
