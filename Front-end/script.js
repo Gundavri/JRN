@@ -1,6 +1,9 @@
 var modal = document.getElementsByClassName('modal')[0];
+var modalOnline = document.getElementsByClassName('modal')[1];
 var modalContent = document.getElementsByClassName('modal-content')[0];
+var modalContentOnline = document.getElementsByClassName('modal-content')[1];
 var modalCloseBtn = document.getElementsByClassName('close')[0];
+var modalOnlineCloseBtn = document.getElementsByClassName('close')[1];
 var rulesBtn = document.getElementsByClassName('rules')[0];
 var textDivs = document.getElementsByClassName('selected-text');
 var lines = document.getElementsByClassName('line');
@@ -15,7 +18,11 @@ var initialRow1 = document.getElementsByClassName('initial-row-1');
 var initialRow2 = document.getElementsByClassName('initial-row-2');
 var scoreDiv = document.getElementsByClassName('score-num')[0];
 
+var roomNumberDiv = document.getElementById('room-number');
+var randomPlayerBtn = document.getElementById('random-player');
+
 // Variables after starting Bonus Mode
+var onlineSwitch = document.getElementById('online-switch');
 var toggleSwitch = document.getElementById('mode-switch');
 var modalImgs = document.getElementsByClassName('modal-body-image');
 var signsWords = document.getElementsByClassName('signs-words');
@@ -95,7 +102,6 @@ function modalOpenFunc(){
     setTimeout(() => {
         modal.style.opacity = '1';
     }, 1);
-    
 }
 
 function modalCloseFunc(){
@@ -104,6 +110,25 @@ function modalCloseFunc(){
         modal.style.display = 'none';
     }, 300);
 }
+
+
+function modalOnlineOpenFunc(){
+    modalOnline.style.display = 'block';
+    modalContentOnline.style.display = 'block';
+    setTimeout(() => {
+        modalOnline.style.opacity = '1';
+    }, 1);
+    
+}
+
+function modalOnlineCloseFunc(){
+    modalOnline.style.opacity = '0';
+    setTimeout(() => {
+        modalOnline.style.display = 'none';
+    }, 300);
+}
+
+
 
 function paperCallback(event) {
     signClickedFunc('paper');
@@ -162,6 +187,14 @@ function modeSwitchCallback(event) {
     } else {
         changeToNormalMode();
     }
+}
+
+function onlineSwitchCallback(event) {
+    modalOnlineOpenFunc();
+}
+
+function randomPlayerBtnCallback(event) {
+    console.log('bluuu')
 }
 
 function resizeCallback(event) {
@@ -616,7 +649,14 @@ modal.addEventListener('click', (event) => {
     }
 });
 
+modalOnline.addEventListener('click', (event) => {
+    if(event.target === modalOnline) {
+        modalOnlineCloseFunc();
+    }
+});
+
 modalCloseBtn.addEventListener('click', modalCloseFunc);
+modalOnlineCloseBtn.addEventListener('click', modalOnlineCloseFunc);
 
 rulesBtn.addEventListener('click', modalOpenFunc);
 
@@ -624,6 +664,8 @@ playAgainBtn[0].addEventListener('click', playAgainCallback)
 playAgainBtn[1].addEventListener('click', playAgainCallback)
 
 toggleSwitch.addEventListener('change', modeSwitchCallback);
+onlineSwitch.addEventListener('change', onlineSwitchCallback);
+randomPlayerBtn.addEventListener('click', randomPlayerBtnCallback);
 
 window.addEventListener('resize', resizeCallback);
 
@@ -648,6 +690,7 @@ socket.on('roomNum', (data) => {
         roomNum = data;
     }
     console.log(roomNum)
+    roomNumberDiv.innerText = roomNum;
     socket.emit('gotRoom', {roomNum, playerNum, wantRandom: false});
 });
 

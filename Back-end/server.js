@@ -9,7 +9,7 @@ const server = app.listen(port, () => {
 });
 
 
-const TIME_INTERVAL = 1000;
+const TIME_INTERVAL = 100;
 
 var roomToPlayers = new Map();
 var randomSet = [];

@@ -82,6 +82,31 @@ body {
     justify-content: center;
 }
 
+.modal-body-online {
+    flex-flow: column;
+}
+
+#room-number {
+    text-align: center;
+    margin-top: 8%;   
+    font-size: 2.2vw;
+    font-weight: 550;
+}
+
+#random-player {
+    width: 70%;
+    height: 30%;
+    margin-top: 30%;
+    background-color: blue;
+    box-shadow: none;
+    border: none;
+    border-radius: 2px;
+    color: wheat;
+    font-weight: 600;
+    font-size: 1.5vw;
+    margin-left: 15%;
+}
+
 .modal-body img {
     height: 20vw;
     display: block;
